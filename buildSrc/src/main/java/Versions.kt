@@ -2,6 +2,7 @@ object Versions {
 
     const val androidGradlePlugin = "7.3.1"
     const val androidGitVersionPlugin = "0.4.14"
+    const val kspPlugin = "1.7.20-1.0.7"
     const val detektPlugin = "1.21.0"
     const val checkDependencyUpdatesPlugin = "1.5.0"
 

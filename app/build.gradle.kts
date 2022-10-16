@@ -6,6 +6,7 @@ plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
     kotlin(Plugins.kapt)
+    id(Plugins.ksp) version Versions.kspPlugin
     id(Plugins.hilt)
     kotlin(Plugins.serialization) version Versions.kotlin
 
@@ -16,6 +17,10 @@ plugins {
 
 kapt {
     correctErrorTypes = true
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/room_schemas")
 }
 
 androidGitVersion {
@@ -44,12 +49,6 @@ android {
 
         vectorDrawables {
             useSupportLibrary = true
-        }
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                argument("room.schemaLocation", "$projectDir/room_schemas")
-            }
         }
     }
 
@@ -114,7 +113,7 @@ dependencies {
 
     implementation(Dependencies.dataStorePreferences)
     implementation(Dependencies.room)
-    kapt(Dependencies.roomCompiler)
+    ksp(Dependencies.roomCompiler)
 
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitSerializationConverter)
