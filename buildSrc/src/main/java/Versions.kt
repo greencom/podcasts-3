@@ -31,6 +31,7 @@ object Versions {
     const val retrofitSerializationConverter = "0.8.0"
 
     const val coil = "2.2.2"
+    const val accompanist = "0.26.5-rc"
 
     const val timber = "5.0.1"
     const val leakCanary = "2.9.1"

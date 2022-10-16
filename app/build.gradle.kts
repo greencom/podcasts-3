@@ -119,6 +119,7 @@ dependencies {
     implementation(Dependencies.retrofitSerializationConverter)
 
     implementation(Dependencies.coil)
+    implementation(Dependencies.accompanistSystemUi)
 
     implementation(Dependencies.timber)
     debugImplementation(Dependencies.leakCanary)
