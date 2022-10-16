@@ -1,8 +1,16 @@
 @file:Suppress("UnstableApiUsage")
 
+import util.ensureVersionCode
+
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
+
+    id(Plugins.androidGitVersion) version(Versions.androidGitVersionPlugin)
+}
+
+androidGitVersion {
+    format = "%tag%--%branch%--%commit%"
 }
 
 android {
@@ -15,8 +23,8 @@ android {
         applicationId = mApplicationId
         minSdk = 24
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = ensureVersionCode(androidGitVersion.code())
+        versionName = androidGitVersion.name()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 

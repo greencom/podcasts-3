@@ -4,4 +4,6 @@ object Versions {
 
     const val androidGradlePlugin = "7.3.1"
 
+    const val androidGitVersionPlugin = "0.4.14"
+
 }
