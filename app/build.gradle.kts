@@ -6,11 +6,17 @@ plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
 
-    id(Plugins.androidGitVersion) version(Versions.androidGitVersionPlugin)
+    id(Plugins.androidGitVersion) version Versions.androidGitVersionPlugin
+    id(Plugins.detekt) version Versions.detektPlugin
 }
 
 androidGitVersion {
     format = "%tag%--%branch%--%commit%"
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    config = files("../config/detekt-config.yml")
 }
 
 android {
@@ -85,4 +91,12 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.2.0")
     debugImplementation("androidx.compose.ui:ui-tooling:1.2.0")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.2.0")
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+        xml.required.set(false)
+        txt.required.set(false)
+    }
 }

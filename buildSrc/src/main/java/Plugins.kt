@@ -11,5 +11,6 @@ object Plugins {
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
 
     const val androidGitVersion = "com.gladed.androidgitversion"
+    const val detekt = "io.gitlab.arturbosch.detekt"
 
 }
