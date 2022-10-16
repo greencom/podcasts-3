@@ -1,4 +1,4 @@
-package com.greencom.android.podcasts3
+package com.greencom.android.podcasts3.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
 private fun TransparentSystemBars() {
     val systemUiController = rememberSystemUiController()
     val useDarkIcons = !isSystemInDarkTheme()
-    
+
     DisposableEffect(systemUiController, useDarkIcons) {
         systemUiController.setSystemBarsColor(
             color = Color.Transparent,
