@@ -6,6 +6,8 @@ plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
     kotlin(Plugins.kapt)
+    id(Plugins.hilt)
+    kotlin(Plugins.serialization) version Versions.kotlin
 
     id(Plugins.androidGitVersion) version Versions.androidGitVersionPlugin
     id(Plugins.detekt) version Versions.detektPlugin
@@ -44,7 +46,11 @@ android {
             useSupportLibrary = true
         }
 
-        // TODO: Export Room schemas
+        javaCompileOptions {
+            annotationProcessorOptions {
+                argument("room.schemaLocation", "$projectDir/room_schemas")
+            }
+        }
     }
 
     buildTypes {
@@ -74,7 +80,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = Versions.composeCompiler
     }
 
     packagingOptions {
@@ -85,18 +91,45 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.3.1")
-    implementation("androidx.compose.ui:ui:1.2.0")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.2.0")
-    implementation("androidx.compose.material3:material3:1.0.0-alpha11")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.2.0")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.2.0")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.2.0")
+    implementation(Dependencies.jetpackCore)
+    implementation(Dependencies.splashScreen)
+    implementation(Dependencies.activity)
+    implementation(Dependencies.lifecycle)
+    implementation(Dependencies.navigation)
+
+    implementation(Dependencies.composeUi)
+    implementation(Dependencies.composeMaterial3)
+    implementation(Dependencies.composeIcons)
+    debugImplementation(Dependencies.composeTooling)
+    implementation(Dependencies.composeToolingPreview)
+    debugImplementation(Dependencies.composeTestManifest)
+
+    implementation(Dependencies.coroutines)
+    implementation(Dependencies.serialization)
+    implementation(Dependencies.immutableCollections)
+
+    implementation(Dependencies.hilt)
+    kapt(Dependencies.hiltCompiler)
+    implementation(Dependencies.hiltNavigationCompose)
+
+    implementation(Dependencies.dataStorePreferences)
+    implementation(Dependencies.room)
+    kapt(Dependencies.roomCompiler)
+
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.retrofitSerializationConverter)
+
+    implementation(Dependencies.coil)
+
+    implementation(Dependencies.timber)
+    debugImplementation(Dependencies.leakCanary)
+
+    // Test
+
+    testImplementation(Dependencies.junit)
+
+    androidTestImplementation(Dependencies.jetpackJunit)
+    androidTestImplementation(Dependencies.composeJunit)
 }
 
 // Compose metrics

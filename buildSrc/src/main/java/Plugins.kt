@@ -10,6 +10,8 @@ object Plugins {
     const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val kapt = "kapt"
+    const val hilt = "com.google.dagger.hilt.android"
+    const val serialization = "plugin.serialization"
 
     const val androidGitVersion = "com.gladed.androidgitversion"
     const val detekt = "io.gitlab.arturbosch.detekt"
