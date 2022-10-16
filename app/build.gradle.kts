@@ -99,6 +99,22 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.2.0")
 }
 
+// Compose metrics
+// Command: ./gradlew assembleRelease -P.enableComposeCompilerReports=true --rerun-tasks
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
+    kotlinOptions.freeCompilerArgs += listOf(
+        "-P",
+        "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" +
+                "${project.buildDir.absolutePath}/compose_metrics"
+    )
+    kotlinOptions.freeCompilerArgs += listOf(
+        "-P",
+        "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=" +
+                "${project.buildDir.absolutePath}/compose_metrics"
+    )
+}
+
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     reports {
         html.required.set(true)
