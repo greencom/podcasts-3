@@ -1,5 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
+import buildtype.appBuildTypes
 import util.ensureVersionCode
 
 plugins {
@@ -53,8 +54,15 @@ android {
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = true
+        appBuildTypes.forEach { buildType ->
+            maybeCreate(buildType.name).apply {
+                isDebuggable = buildType.isDebuggable
+                isMinifyEnabled = buildType.isMinifyEnabled
+                applicationIdSuffix = buildType.applicationIdSuffix
+                versionNameSuffix = buildType.versionNameSuffix
+
+                stringResValue(Keys.appName, buildType.appName)
+            }
         }
 
         all {
@@ -154,4 +162,12 @@ tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
         xml.required.set(false)
         txt.required.set(false)
     }
+}
+
+fun com.android.build.api.dsl.VariantDimension.stringResValue(name: String, value: String) {
+    resValue("string", name, value)
+}
+
+fun com.android.build.api.dsl.VariantDimension.stringBuildConfigField(name: String, value: String) {
+    buildConfigField("String", name, "\"$value\"")
 }
