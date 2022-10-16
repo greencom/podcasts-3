@@ -6,11 +6,13 @@ plugins {
 }
 
 android {
-    namespace = "com.greencom.android.podcasts3"
+    val mApplicationId = "com.greencom.android.podcasts3"
+
+    namespace = mApplicationId
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.greencom.android.podcasts3"
+        applicationId = mApplicationId
         minSdk = 24
         targetSdk = 33
         versionCode = 1
