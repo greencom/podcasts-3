@@ -5,10 +5,15 @@ import util.ensureVersionCode
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
+    kotlin(Plugins.kapt)
 
     id(Plugins.androidGitVersion) version Versions.androidGitVersionPlugin
     id(Plugins.detekt) version Versions.detektPlugin
     id(Plugins.checkDependencyUpdates) version Versions.checkDependencyUpdatesPlugin
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 androidGitVersion {
