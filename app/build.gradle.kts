@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.greencom.android.podcasts3"
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.greencom.android.podcasts3"
         minSdk = 24
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
