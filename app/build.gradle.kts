@@ -8,6 +8,7 @@ plugins {
 
     id(Plugins.androidGitVersion) version Versions.androidGitVersionPlugin
     id(Plugins.detekt) version Versions.detektPlugin
+    id(Plugins.checkDependencyUpdates) version Versions.checkDependencyUpdatesPlugin
 }
 
 androidGitVersion {

@@ -12,5 +12,6 @@ object Plugins {
 
     const val androidGitVersion = "com.gladed.androidgitversion"
     const val detekt = "io.gitlab.arturbosch.detekt"
+    const val checkDependencyUpdates = "name.remal.check-dependency-updates"
 
 }
