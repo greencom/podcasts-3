@@ -13,12 +13,12 @@ object Versions {
 
     const val jetpackCore = "1.9.0"
     const val splashScreen = "1.0.0"
-    const val activity = "1.6.0"
+    const val activity = "1.6.1"
     const val lifecycle = "2.5.1"
-    const val navigation = "2.5.2"
+    const val navigation = "2.5.3"
 
-    const val compose = "1.3.0-rc01"
-    const val composeMaterial3 = "1.0.0-rc01"
+    const val compose = "1.3.0"
+    const val composeMaterial3 = "1.0.0"
     const val composeCompiler = "1.3.2"
 
     const val hilt = "2.44"
@@ -31,7 +31,7 @@ object Versions {
     const val retrofitSerializationConverter = "0.8.0"
 
     const val coil = "2.2.2"
-    const val accompanist = "0.26.5-rc"
+    const val accompanist = "0.27.0"
 
     const val timber = "5.0.1"
     const val leakCanary = "2.9.1"
