@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name_debug">Debug</string>
+
+    <string name="app_name_debug" translatable="false">Debug</string>
     <string name="app_name_release">Podcasts</string>
+
+    <string name="navigation_bar_podcasts">Podcasts</string>
+    <string name="navigation_bar_discover">Discover</string>
+
 </resources>
