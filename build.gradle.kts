@@ -1,22 +1,17 @@
 buildscript {
-
     repositories {
         google()
         mavenCentral()
     }
-
-    dependencies {
-        classpath(Plugins.BuildScript.androidGradlePlugin)
-        classpath(Plugins.BuildScript.kotlinPlugin)
-    }
-
 }
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id(Plugins.androidApplication) version Versions.androidGradlePlugin apply false
-    id(Plugins.androidLibrary) version Versions.androidGradlePlugin apply false
-    id(Plugins.kotlinAndroid) version Versions.kotlin apply false
-    id(Plugins.hilt) version Versions.hilt apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.kapt) apply false
+    alias(libs.plugins.hilt) apply false
 }
 
 tasks.register("clean", Delete::class) {
