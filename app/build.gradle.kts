@@ -137,7 +137,7 @@ dependencies {
     testImplementation(libs.test.junit)
 
     androidTestImplementation(libs.test.jetpackJunit)
-    androidTestImplementation(libs.compose.junit)
+    androidTestImplementation(libs.test.composeJunit)
 }
 
 // Compose metrics

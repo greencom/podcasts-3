@@ -55,7 +55,6 @@ compose-icons = { module = "androidx.compose.material:material-icons-extended", 
 compose-toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-testManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
-compose-junit = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
 
 kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
@@ -76,6 +75,7 @@ debug-leakCanary = { module = "com.squareup.leakcanary:leakcanary-android", vers
 
 test-junit = { module = "junit:junit", version.ref = "junit" }
 test-jetpackJunit = { module = "androidx.test.ext:junit", version.ref = "jetpackJunit" }
+test-composeJunit = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
 
 
 [bundles]
@@ -96,8 +96,7 @@ compose = [
     "compose-icons",
     "compose-toolingPreview",
     "compose-tooling",
-    "compose-testManifest",
-    "compose-junit"
+    "compose-testManifest"
 ]
 
 kotlin = [
@@ -124,7 +123,8 @@ debug = [
 
 test = [
     "test-junit",
-    "test-jetpackJunit"
+    "test-jetpackJunit",
+    "test-composeJunit"
 ]
 
 
