@@ -50,6 +50,7 @@ jetpack-room = { module = "androidx.room:room-ktx", version.ref = "room" }
 jetpack-roomCompiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-material2 = { module = "androidx.compose.material:material", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "composeMaterial3" }
 compose-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
 compose-toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
@@ -92,6 +93,7 @@ jetpack = [
 
 compose = [
     "compose-ui",
+    "compose-material2",
     "compose-material3",
     "compose-icons",
     "compose-toolingPreview",

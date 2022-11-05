@@ -109,6 +109,7 @@ dependencies {
     ksp(libs.jetpack.roomCompiler)
 
     implementation(libs.compose.ui)
+    implementation(libs.compose.material2)
     implementation(libs.compose.material3)
     implementation(libs.compose.icons)
     debugImplementation(libs.compose.tooling)
