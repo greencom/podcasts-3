@@ -1,7 +1,7 @@
 package com.greencom.android.podcasts3.ui.app.component
 
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.*
+import androidx.compose.animation.core.tween
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -52,7 +52,13 @@ private fun NavigationBarItemIcon(
     isSelected: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    AnimatedContent(modifier = modifier, targetState = isSelected) { mIsSelected ->
+    AnimatedContent(
+        modifier = modifier,
+        targetState = isSelected,
+        transitionSpec = {
+            fadeIn(NavigationBarItemAnimationSpec) with fadeOut(NavigationBarItemAnimationSpec)
+        },
+    ) { mIsSelected ->
         val iconResId = if (mIsSelected) item.iconSelectedResId else item.iconUnselectedResId
         Icon(
             painter = painterResource(iconResId),
@@ -60,3 +66,5 @@ private fun NavigationBarItemIcon(
         )
     }
 }
+
+private val NavigationBarItemAnimationSpec = tween<Float>(durationMillis = 140)
