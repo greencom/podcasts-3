@@ -29,6 +29,7 @@ retrofit = "2.9.0"
 retrofitSerializationConverter = "0.8.0"
 
 coil = "2.2.2"
+
 accompanist = "0.28.0"
 
 timber = "5.0.1"
