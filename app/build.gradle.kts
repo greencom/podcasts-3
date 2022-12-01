@@ -108,13 +108,14 @@ dependencies {
     implementation(libs.jetpack.room)
     ksp(libs.jetpack.roomCompiler)
 
-    implementation(libs.compose.ui)
-    implementation(libs.compose.material2)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.icons)
-    debugImplementation(libs.compose.tooling)
-    implementation(libs.compose.toolingPreview)
-    debugImplementation(libs.compose.testManifest)
+    implementation(platform(libs.jetpack.compose.bom))
+    implementation(libs.jetpack.compose.ui)
+    implementation(libs.jetpack.compose.material)
+    implementation(libs.jetpack.compose.material3)
+    implementation(libs.jetpack.compose.icons)
+    implementation(libs.jetpack.compose.toolingPreview)
+    debugImplementation(libs.jetpack.compose.tooling)
+    debugImplementation(libs.jetpack.compose.testManifest)
 
     implementation(libs.kotlin.coroutines)
     implementation(libs.kotlin.serialization)
@@ -128,17 +129,17 @@ dependencies {
     implementation(libs.retrofit.serializationConverter)
 
     implementation(libs.coil)
-    implementation(libs.accompanistSystemUi)
+    implementation(libs.accompanist.systemUi)
 
-    implementation(libs.debug.timber)
-    debugImplementation(libs.debug.leakCanary)
+    implementation(libs.timber)
+    debugImplementation(libs.leakCanary)
 
     // Test
 
     testImplementation(libs.test.junit)
 
-    androidTestImplementation(libs.test.jetpackJunit)
-    androidTestImplementation(libs.test.composeJunit)
+    androidTestImplementation(libs.jetpack.test.junit)
+    androidTestImplementation(libs.jetpack.compose.test.junit)
 }
 
 // Compose metrics
