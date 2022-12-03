@@ -13,7 +13,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.greencom.android.podcasts3.ui.navigation.AppNavigationItem
 import com.greencom.android.podcasts3.ui.navigation.AppNavigationItems
-import com.greencom.android.podcasts3.util.navigation.navigateToNavigationItem
+import com.greencom.android.podcasts3.utils.navigation.navigateToNavigationItem
 
 @Composable
 fun AppNavigationBar(

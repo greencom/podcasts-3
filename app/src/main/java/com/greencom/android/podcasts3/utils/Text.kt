@@ -1,4 +1,4 @@
-package com.greencom.android.podcasts3.util
+package com.greencom.android.podcasts3.utils
 
 import android.content.Context
 import androidx.annotation.PluralsRes

@@ -1,4 +1,4 @@
-package com.greencom.android.podcasts3.util.navigation
+package com.greencom.android.podcasts3.utils.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.DialogProperties

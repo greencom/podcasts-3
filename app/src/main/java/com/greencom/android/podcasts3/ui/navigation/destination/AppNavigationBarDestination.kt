@@ -1,6 +1,6 @@
 package com.greencom.android.podcasts3.ui.navigation.destination
 
-import com.greencom.android.podcasts3.util.navigation.parameterless.Destination
+import com.greencom.android.podcasts3.utils.navigation.parameterless.Destination
 
 object AppNavigationBarDestination {
 
