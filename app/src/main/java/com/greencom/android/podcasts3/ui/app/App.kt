@@ -10,6 +10,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.navigation.compose.rememberNavController
 import com.greencom.android.podcasts3.ui.app.components.AppNavigationBar
 import com.greencom.android.podcasts3.ui.common.compositionlocalproviders.LocalNavigationBarSizeTracker
+import com.greencom.android.podcasts3.ui.player.PlayerBottomSheet
 import com.greencom.android.podcasts3.ui.theme.AppTheme
 
 @Composable
@@ -18,6 +19,8 @@ fun App() {
         Box {
             // TODO: Replace with app navigation
             Surface(modifier = Modifier.fillMaxSize()) {}
+
+            PlayerBottomSheet()
 
             val navigationBarSizeTracker = LocalNavigationBarSizeTracker.current
             AppNavigationBar(
