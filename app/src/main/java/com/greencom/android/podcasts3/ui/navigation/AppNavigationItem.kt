@@ -3,7 +3,6 @@ package com.greencom.android.podcasts3.ui.navigation
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.greencom.android.podcasts3.R
-import com.greencom.android.podcasts3.ui.common.AppIcons
 import com.greencom.android.podcasts3.ui.navigation.destination.AppNavigationBarDestination
 
 val AppNavigationItems = listOf(
@@ -21,15 +20,15 @@ sealed class AppNavigationItem(
     object Podcasts : AppNavigationItem(
         route = AppNavigationBarDestination.Podcasts.route,
         labelResId = R.string.navigation_bar_podcasts,
-        iconSelectedResId = AppIcons.NavigationBarPodcastsFilled,
-        iconUnselectedResId = AppIcons.NavigationBarPodcastsOutlined,
+        iconSelectedResId = R.drawable.ic_navigation_bar_podcasts_filled_24,
+        iconUnselectedResId = R.drawable.ic_navigation_bar_podcasts_outlined_24,
     )
 
     object Discover : AppNavigationItem(
         route = AppNavigationBarDestination.Discover.route,
         labelResId = R.string.navigation_bar_discover,
-        iconSelectedResId = AppIcons.NavigationBarDiscoverFilled,
-        iconUnselectedResId = AppIcons.NavigationBarDiscoverOutlined,
+        iconSelectedResId = R.drawable.ic_navigation_bar_discover_filled_24,
+        iconUnselectedResId = R.drawable.ic_navigation_bar_discover_outlined_24,
     )
 
 }
