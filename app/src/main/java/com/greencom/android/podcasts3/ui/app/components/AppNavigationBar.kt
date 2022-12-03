@@ -1,4 +1,4 @@
-package com.greencom.android.podcasts3.ui.app.component
+package com.greencom.android.podcasts3.ui.app.components
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.tween
