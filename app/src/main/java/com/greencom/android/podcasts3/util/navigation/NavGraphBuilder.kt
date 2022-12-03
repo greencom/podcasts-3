@@ -1,6 +1,7 @@
 package com.greencom.android.podcasts3.util.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.window.DialogProperties
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -21,17 +22,22 @@ fun NavGraphBuilder.composableDestination(
 
 fun NavGraphBuilder.dialogDestination(
     destination: Destination<*>,
+    dialogProperties: DialogProperties = DialogProperties(),
     content: @Composable (NavBackStackEntry) -> Unit,
 ) {
     dialog(
         route = destination.routeSchema,
         arguments = destination.arguments,
         deepLinks = destination.deepLinks,
+        dialogProperties = dialogProperties,
         content = content,
     )
 }
 
-inline fun NavGraphBuilder.navigationGraph(graph: Graph<*>, builder: NavGraphBuilder.() -> Unit) {
+inline fun NavGraphBuilder.navigationGraph(
+    graph: Graph<*>,
+    builder: NavGraphBuilder.() -> Unit,
+) {
     navigation(
         route = graph.routeSchema,
         startDestination = graph.startDestination.routeSchema,
