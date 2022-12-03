@@ -21,6 +21,7 @@ jetpackJunit = "1.1.4"
 
 composeBom = "2022.11.00"
 composeCompiler = "1.3.2"
+composeTestJunit = "1.3.1"
 
 hilt = "2.44.2"
 hiltComposeNavigation = "1.0.0"
@@ -57,7 +58,7 @@ jetpack-compose-icons = { module = "androidx.compose.material:material-icons-ext
 jetpack-compose-toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
 jetpack-compose-tooling = { module = "androidx.compose.ui:ui-tooling" }
 jetpack-compose-testManifest = { module = "androidx.compose.ui:ui-test-manifest" }
-jetpack-compose-test-junit = { module = "androidx.compose.ui:ui-test-junit4" }
+jetpack-compose-test-junit = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "composeTestJunit" }
 
 kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
