@@ -20,7 +20,7 @@ fun AppNavigationBar(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
-    NavigationBar(modifier) {
+    NavigationBar(modifier = modifier) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
 
@@ -33,7 +33,9 @@ fun AppNavigationBar(
                 onClick = {
                     navController.navigateToNavigationItem(item)
                 },
-                icon = { NavigationBarItemIcon(item, isSelected) },
+                icon = {
+                    NavigationBarItemIcon(item, isSelected)
+                },
                 label = {
                     Text(
                         text = stringResource(item.labelResId),
