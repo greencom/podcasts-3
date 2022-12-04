@@ -26,33 +26,21 @@ fun PlayerBottomSheet(
     modifier: Modifier = Modifier,
 ) {
     BoxWithConstraints(modifier = modifier) {
+        val density = LocalDensity.current
         val maxHeightPx = constraints.maxHeight
         val navigationBarSizeTracker = LocalNavigationBarSizeTracker.current
         val navigationBarHeightPx = navigationBarSizeTracker.sizePx.value.height
-        val density = LocalDensity.current
         val peekHeightPx = remember(density) {
             with(density) { PeekHeight.toPx() }
         }
         val systemNavigationBarsHeightPx = WindowInsets.navigationBars.getBottom(density)
 
-        val anchors = remember(
-            maxHeightPx,
-            navigationBarHeightPx,
-            peekHeightPx,
-            systemNavigationBarsHeightPx,
-        ) {
-            val collapsedAnchor = calculateCollapsedAnchor(
-                maxHeightPx = maxHeightPx.toFloat(),
-                navigationBarHeightPx = navigationBarHeightPx.toFloat(),
-                peekHeightPx = peekHeightPx,
-                systemNavigationBarsHeightPx = systemNavigationBarsHeightPx.toFloat(),
-            )
-            mapOf(
-                0f to PlayerBottomSheetState.Expanded,
-                collapsedAnchor to PlayerBottomSheetState.Collapsed,
-                maxHeightPx.toFloat() to PlayerBottomSheetState.Hidden,
-            )
-        }
+        val anchors = rememberAnchors(
+            maxHeightPx = maxHeightPx.toFloat(),
+            navigationBarHeightPx = navigationBarHeightPx.toFloat(),
+            peekHeightPx = peekHeightPx,
+            systemNavigationBarsHeightPx = systemNavigationBarsHeightPx.toFloat(),
+        )
         val swipeableState = rememberSwipeableState(
             initialValue = PlayerBottomSheetState.Collapsed,
             confirmStateChange = { it != PlayerBottomSheetState.Hidden },
@@ -60,8 +48,8 @@ fun PlayerBottomSheet(
         val fractionalThreshold = remember {
             FractionalThreshold(ThresholdFraction)
         }
-        val resistanceConfig = remember {
-            ResistanceConfig(0f, 0f, 0f)
+        val resistanceConfig = remember(anchors) {
+            createResistanceConfig(anchors.keys)
         }
 
         Box(
@@ -82,6 +70,33 @@ fun PlayerBottomSheet(
     }
 }
 
+@Composable
+private fun rememberAnchors(
+    maxHeightPx: Float,
+    navigationBarHeightPx: Float,
+    peekHeightPx: Float,
+    systemNavigationBarsHeightPx: Float,
+): Map<Float, PlayerBottomSheetState> {
+    return remember(
+        maxHeightPx,
+        navigationBarHeightPx,
+        peekHeightPx,
+        systemNavigationBarsHeightPx,
+    ) {
+        val collapsedAnchor = calculateCollapsedAnchor(
+            maxHeightPx = maxHeightPx,
+            navigationBarHeightPx = navigationBarHeightPx,
+            peekHeightPx = peekHeightPx,
+            systemNavigationBarsHeightPx = systemNavigationBarsHeightPx,
+        )
+        mapOf(
+            0f to PlayerBottomSheetState.Expanded,
+            collapsedAnchor to PlayerBottomSheetState.Collapsed,
+            maxHeightPx to PlayerBottomSheetState.Hidden,
+        )
+    }
+}
+
 @Stable
 private fun calculateCollapsedAnchor(
     maxHeightPx: Float,
@@ -93,5 +108,17 @@ private fun calculateCollapsedAnchor(
         maxHeightPx - navigationBarHeightPx - peekHeightPx
     } else {
         maxHeightPx - systemNavigationBarsHeightPx - peekHeightPx
+    }
+}
+
+private const val ResistanceFactor = 30f
+
+@Stable
+fun createResistanceConfig(anchors: Set<Float>): ResistanceConfig? {
+    return if (anchors.size > 1) {
+        val basis = anchors.max() - anchors.min()
+        ResistanceConfig(basis, ResistanceFactor, ResistanceFactor)
+    } else {
+        null
     }
 }
