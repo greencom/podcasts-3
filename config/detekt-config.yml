@@ -6,12 +6,16 @@ naming:
 
 complexity:
   LongParameterList:
-    ignoreDefaultParameters: false
+    functionThreshold: 8
+    constructorThreshold: 8
+    ignoreDefaultParameters: true
+  LongMethod:
+    threshold: 100
 
 style:
   MagicNumber:
     ignorePropertyDeclaration: true
   UnusedPrivateMember:
-    ignoreAnnotated: ['Preview']
+    ignoreAnnotated: ['Preview', 'ThemePreviews', 'FontSizePreviews', 'DensityPreviews']
   WildcardImport:
     active: false
