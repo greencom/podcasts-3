@@ -19,7 +19,6 @@ sealed class Text {
 
     abstract fun getString(context: Context): kotlin.String
 
-    @Suppress("Unused")
     object Empty : Text() {
         override fun getString(context: Context): kotlin.String = ""
     }
