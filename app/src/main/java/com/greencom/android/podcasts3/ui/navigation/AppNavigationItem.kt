@@ -3,7 +3,7 @@ package com.greencom.android.podcasts3.ui.navigation
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.greencom.android.podcasts3.R
-import com.greencom.android.podcasts3.ui.navigation.destination.AppNavigationBarDestination
+import com.greencom.android.podcasts3.ui.navigation.destinations.AppNavigationBarDestination
 
 val AppNavigationItems = listOf(
     AppNavigationItem.Podcasts,

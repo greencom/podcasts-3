@@ -1,4 +1,4 @@
-package com.greencom.android.podcasts3.ui.navigation.destination
+package com.greencom.android.podcasts3.ui.navigation.destinations
 
 import com.greencom.android.podcasts3.utils.navigation.parameterless.Destination
 
