@@ -16,3 +16,6 @@
 local.properties
 /buildSrc/build
 /buildSrc/.gradle
+
+# Private properties
+properties
