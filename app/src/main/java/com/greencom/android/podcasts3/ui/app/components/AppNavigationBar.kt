@@ -18,7 +18,7 @@ import com.greencom.android.podcasts3.ui.common.screenbehaviors.navigationbar.Lo
 import com.greencom.android.podcasts3.ui.common.screenbehaviors.navigationbar.NavigationBarBehavior
 import com.greencom.android.podcasts3.ui.navigation.AppNavigationItem
 import com.greencom.android.podcasts3.ui.navigation.AppNavigationItems
-import com.greencom.android.podcasts3.utils.navigation.navigateToNavigationItem
+import com.greencom.android.podcasts3.utils.navigateToNavigationItem
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable

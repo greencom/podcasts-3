@@ -1,4 +1,4 @@
-package com.greencom.android.podcasts3.utils.navigation
+package com.greencom.android.podcasts3.utils
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
