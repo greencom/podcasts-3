@@ -47,7 +47,7 @@ class NetworkModule {
     }
 
     private fun OkHttpClient.Builder.addLoggingInterceptor(): OkHttpClient.Builder {
-        if (!BuildConfig.DEBUG) return this
+        if (!BuildConfig.IS_LOGGING_ENABLED) return this
         val loggingInterceptor = HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)
         return this.addInterceptor(loggingInterceptor)

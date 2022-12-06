@@ -63,6 +63,7 @@ android {
                 versionNameSuffix = buildType.versionNameSuffix
 
                 stringResValue(Keys.APP_NAME, buildType.appName)
+                booleanBuildConfigField(Keys.IS_LOGGING_ENABLED, buildType.isLoggingEnabled)
             }
         }
 
@@ -178,4 +179,8 @@ fun com.android.build.api.dsl.VariantDimension.stringResValue(name: String, valu
 
 fun com.android.build.api.dsl.VariantDimension.stringBuildConfigField(name: String, value: String) {
     buildConfigField("String", name, "\"$value\"")
+}
+
+fun com.android.build.api.dsl.VariantDimension.booleanBuildConfigField(name: String, value: Boolean) {
+    buildConfigField("boolean", name, "$value")
 }
