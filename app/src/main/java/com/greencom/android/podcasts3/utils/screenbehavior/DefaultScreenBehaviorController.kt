@@ -3,6 +3,7 @@ package com.greencom.android.podcasts3.utils.screenbehavior
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import timber.log.Timber
 
 @Stable
 open class DefaultScreenBehaviorController<T : ScreenBehavior>(
@@ -35,6 +36,10 @@ open class DefaultScreenBehaviorController<T : ScreenBehavior>(
 
     private fun updateCurrent() {
         _currentBehavior.value = behaviorStack.firstOrNull() ?: defaultBehavior
+        Timber.d(
+            "Current screen behavior: ${currentBehavior.value}, " +
+                    "behavior stack: $behaviorStack"
+        )
     }
 
 }
