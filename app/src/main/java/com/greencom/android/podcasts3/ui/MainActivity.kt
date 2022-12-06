@@ -6,7 +6,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -14,6 +17,7 @@ import com.greencom.android.podcasts3.ui.app.App
 import com.greencom.android.podcasts3.ui.common.screenbehaviors.screenorientation.LocalScreenOrientationBehaviorController
 import com.greencom.android.podcasts3.ui.common.screenbehaviors.screenorientation.ScreenOrientationBehavior
 import com.greencom.android.podcasts3.ui.common.screenbehaviors.screenorientation.ScreenOrientationBehaviorController
+import com.greencom.android.podcasts3.ui.theme.AppTheme
 import com.greencom.android.podcasts3.utils.screenbehavior.DefaultScreenBehaviorController
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,7 +41,11 @@ class MainActivity : ComponentActivity() {
             CompositionLocalProvider(
                 LocalScreenOrientationBehaviorController provides screenOrientationBehaviorController,
             ) {
-                App()
+                AppTheme {
+                    Surface(modifier = Modifier.fillMaxSize()) {
+                        App()
+                    }
+                }
             }
         }
     }
