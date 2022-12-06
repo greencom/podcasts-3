@@ -1,5 +1,7 @@
 <resources>
 
+    <string name="app_name_debug">Подкасты Debug</string>
+    <string name="app_name_qa">Подкасты QA</string>
     <string name="app_name_release">Подкасты</string>
 
     <string name="navigation_bar_podcasts">Подкасты</string>
