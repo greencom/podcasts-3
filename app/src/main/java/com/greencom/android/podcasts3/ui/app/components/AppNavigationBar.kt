@@ -10,7 +10,9 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntSize
+import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.greencom.android.podcasts3.ui.common.compositionlocalproviders.LocalNavigationBarSizeTracker
@@ -18,7 +20,6 @@ import com.greencom.android.podcasts3.ui.common.screenbehaviors.navigationbar.Lo
 import com.greencom.android.podcasts3.ui.common.screenbehaviors.navigationbar.NavigationBarBehavior
 import com.greencom.android.podcasts3.ui.navigation.AppNavigationItem
 import com.greencom.android.podcasts3.ui.navigation.AppNavigationItems
-import com.greencom.android.podcasts3.utils.navigateToNavigationItem
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -108,5 +109,15 @@ private fun NavigationBarItemIcon(
             painter = painterResource(iconResId),
             contentDescription = stringResource(item.labelResId),
         )
+    }
+}
+
+private fun NavController.navigateToNavigationItem(item: AppNavigationItem) {
+    navigate(item.route) {
+        popUpTo(graph.findStartDestination().id) {
+            saveState = true
+        }
+        launchSingleTop = true
+        restoreState = true
     }
 }
