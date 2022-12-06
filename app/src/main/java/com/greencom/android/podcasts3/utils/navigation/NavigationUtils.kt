@@ -1,6 +1,6 @@
 package com.greencom.android.podcasts3.utils.navigation
 
-object RouteUtils {
+object NavigationUtils {
 
     fun generateRouteSchema(
         routeBase: String,
