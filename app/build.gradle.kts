@@ -67,6 +67,9 @@ android {
         }
 
         all {
+            val listenNotesApiKeyHolder = ListenNotesApiKeyHolder.init(project)
+            stringBuildConfigField(Keys.LISTEN_NOTES_API_KEY, listenNotesApiKeyHolder.key)
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
