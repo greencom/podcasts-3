@@ -12,6 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.greencom.android.podcasts3.ui.app.components.AppNavigationBar
 import com.greencom.android.podcasts3.ui.common.screenbehaviors.navigationbar.LocalNavigationBarBehaviorController
 import com.greencom.android.podcasts3.ui.common.screenbehaviors.navigationbar.NavigationBarBehavior
+import com.greencom.android.podcasts3.ui.common.screenbehaviors.navigationbar.NavigationBarBehaviorController
 import com.greencom.android.podcasts3.ui.theme.AppTheme
 import com.greencom.android.podcasts3.utils.screenbehavior.DefaultScreenBehaviorController
 
@@ -19,11 +20,8 @@ import com.greencom.android.podcasts3.utils.screenbehavior.DefaultScreenBehavior
 fun App() {
     AppTheme {
         // TODO: Do not forget to change
-        val navigationBarBehaviorController = remember {
-            DefaultScreenBehaviorController<NavigationBarBehavior>(
-                defaultBehavior = NavigationBarBehavior.Visible(isAnimated = false)
-            )
-        }
+        val navigationBarBehaviorController =
+            rememberNavigationBarBehaviorController()
 
         CompositionLocalProvider(
             LocalNavigationBarBehaviorController provides navigationBarBehaviorController,
@@ -40,5 +38,14 @@ fun App() {
                 // TODO: Add player
             }
         }
+    }
+}
+
+@Composable
+private fun rememberNavigationBarBehaviorController(): NavigationBarBehaviorController {
+    return remember {
+        DefaultScreenBehaviorController(
+            defaultBehavior = NavigationBarBehavior.Visible(isAnimated = false)
+        )
     }
 }
