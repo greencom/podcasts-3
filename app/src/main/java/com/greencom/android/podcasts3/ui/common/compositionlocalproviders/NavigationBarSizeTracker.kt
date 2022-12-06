@@ -11,7 +11,7 @@ val LocalNavigationBarSizeTracker = staticCompositionLocalOf {
 
 class NavigationBarSizeTracker {
 
-    private val _sizePx = mutableStateOf(IntSize(0, 0))
+    private val _sizePx = mutableStateOf(IntSize.Zero)
     val sizePx: State<IntSize> = _sizePx
 
     fun onSizeChanged(size: IntSize) {
