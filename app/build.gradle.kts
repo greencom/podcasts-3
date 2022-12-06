@@ -62,7 +62,7 @@ android {
                 applicationIdSuffix = buildType.applicationIdSuffix
                 versionNameSuffix = buildType.versionNameSuffix
 
-                stringResValue(Keys.appName, buildType.appName)
+                stringResValue(Keys.APP_NAME, buildType.appName)
             }
         }
 

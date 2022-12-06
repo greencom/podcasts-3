@@ -1,3 +1,3 @@
 object Keys {
-    const val appName = "app_name"
+    const val APP_NAME = "app_name"
 }
