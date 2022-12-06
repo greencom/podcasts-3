@@ -1,14 +1,12 @@
 package com.greencom.android.podcasts3.ui
 
+import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -30,6 +28,11 @@ class MainActivity : ComponentActivity() {
 
             val screenOrientationBehaviorController =
                 rememberScreenOrientationBehaviorController()
+
+            ActivityOrientation(
+                activity = this,
+                screenOrientationBehaviorController = screenOrientationBehaviorController,
+            )
 
             CompositionLocalProvider(
                 LocalScreenOrientationBehaviorController provides screenOrientationBehaviorController,
@@ -57,7 +60,20 @@ private fun TransparentSystemBars() {
 private fun rememberScreenOrientationBehaviorController(): ScreenOrientationBehaviorController {
     return remember {
         DefaultScreenBehaviorController(
-            defaultBehavior = ScreenOrientationBehavior(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+            defaultBehavior = ScreenOrientationBehavior(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         )
+    }
+}
+
+@Composable
+private fun ActivityOrientation(
+    activity: Activity,
+    screenOrientationBehaviorController: ScreenOrientationBehaviorController,
+) {
+    val orientationBehavior by screenOrientationBehaviorController.currentBehavior
+    LaunchedEffect(orientationBehavior.orientation) {
+        if (activity.requestedOrientation != orientationBehavior.orientation) {
+            activity.requestedOrientation = orientationBehavior.orientation
+        }
     }
 }
