@@ -8,5 +8,7 @@ typealias NavigationBarBehaviorController = ScreenBehaviorController<NavigationB
 
 val LocalNavigationBarBehaviorController =
     staticCompositionLocalOf<NavigationBarBehaviorController> {
-        NoOpScreenBehaviorController(NavigationBarBehavior.Hidden(isAnimated = false))
+        NoOpScreenBehaviorController(
+            defaultBehavior = NavigationBarBehavior.Hidden(isAnimated = false)
+        )
     }
