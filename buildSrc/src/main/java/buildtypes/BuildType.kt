@@ -1,4 +1,4 @@
-package buildtype
+package buildtypes
 
 abstract class BuildType(val name: String) {
     abstract val appName: String

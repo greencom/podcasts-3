@@ -1,4 +1,4 @@
-package buildtype
+package buildtypes
 
 val appBuildTypes = listOf(Debug, Release)
 

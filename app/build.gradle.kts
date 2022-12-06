@@ -1,7 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
-import buildtype.appBuildTypes
-import util.ensureVersionCode
+import buildtypes.appBuildTypes
+import utils.ensureVersionCode
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
