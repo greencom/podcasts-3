@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 
 @Composable
-fun NavigationBarBehavior(isVisible: Boolean, isAnimated: Boolean = true) {
+fun NavigationBarState(isVisible: Boolean, isAnimated: Boolean = true) {
     val navigationBarBehaviorController =
         LocalNavigationBarBehaviorController.current
 
