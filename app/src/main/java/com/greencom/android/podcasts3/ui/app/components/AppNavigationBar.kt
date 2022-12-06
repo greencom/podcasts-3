@@ -21,6 +21,8 @@ import com.greencom.android.podcasts3.ui.common.screenbehaviors.navigationbar.Na
 import com.greencom.android.podcasts3.ui.navigation.AppNavigationItem
 import com.greencom.android.podcasts3.ui.navigation.AppNavigationItems
 
+private const val HeightThresholdPx = 1
+
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AppNavigationBar(
@@ -40,10 +42,14 @@ fun AppNavigationBar(
         enter = if (isAnimated) expandVertically() else EnterTransition.None,
         exit = if (isAnimated) shrinkVertically() else ExitTransition.None,
         modifier = modifier.onSizeChanged {
-            // TODO: Height remains 1px after the bar disappears
-            // Workaround for cases when the animation is disabled
-            val newSize = if (!isVisible && !isAnimated) IntSize.Zero else it
-            navigationBarSizeTracker.onSizeChanged(newSize)
+            val size = when {
+                // Workaround for cases when the animation is disabled
+                !isVisible && !isAnimated -> IntSize.Zero
+                // Height remains 1px after the bar disappears 🥴. TODO: Fix
+                it.height <= HeightThresholdPx -> IntSize(it.width, 0)
+                else -> it
+            }
+            navigationBarSizeTracker.onSizeChanged(size)
         },
     ) {
         AppNavigationBarContent(
