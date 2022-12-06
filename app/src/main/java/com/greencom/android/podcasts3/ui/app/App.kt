@@ -36,6 +36,8 @@ fun App() {
                     navController = rememberNavController(),
                     modifier = Modifier.align(Alignment.BottomCenter),
                 )
+
+                // TODO: Add player
             }
         }
     }
