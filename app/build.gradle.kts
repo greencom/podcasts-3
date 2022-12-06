@@ -130,6 +130,7 @@ dependencies {
 
     implementation(libs.retrofit.retrofit)
     implementation(libs.retrofit.serializationConverter)
+    implementation(libs.retrofit.loggingInterceptor)
 
     implementation(libs.coil)
     implementation(libs.accompanist.systemUi)

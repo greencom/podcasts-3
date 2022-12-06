@@ -28,6 +28,7 @@ hiltComposeNavigation = "1.0.0"
 
 retrofit = "2.9.0"
 retrofitSerializationConverter = "0.8.0"
+retrofitLoggingInterceptor = "4.10.0"
 
 coil = "2.2.2"
 
@@ -70,6 +71,7 @@ hilt-navigationCompose = { module = "androidx.hilt:hilt-navigation-compose", ver
 
 retrofit-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-serializationConverter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofitSerializationConverter" }
+retrofit-loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "retrofitLoggingInterceptor" }
 
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 accompanist-systemUi = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
