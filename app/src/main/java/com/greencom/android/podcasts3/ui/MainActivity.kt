@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
             val screenOrientationBehaviorController =
                 rememberScreenOrientationBehaviorController()
 
-            ActivityOrientation(
+            RequestedActivityOrientation(
                 activity = this,
                 screenOrientationBehaviorController = screenOrientationBehaviorController,
             )
@@ -74,7 +74,7 @@ private fun rememberScreenOrientationBehaviorController(): ScreenOrientationBeha
 }
 
 @Composable
-private fun ActivityOrientation(
+private fun RequestedActivityOrientation(
     activity: Activity,
     screenOrientationBehaviorController: ScreenOrientationBehaviorController,
 ) {
