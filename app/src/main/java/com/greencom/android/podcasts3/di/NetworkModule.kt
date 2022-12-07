@@ -54,7 +54,7 @@ class NetworkModule {
     }
 
     companion object {
-        private const val BASE_URL = "https://listen-api.listennotes.com/api/"
+        private const val BASE_URL = "https://listen-api.listennotes.com/api/v2/"
     }
 
 }
