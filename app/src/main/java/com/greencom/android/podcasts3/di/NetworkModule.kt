@@ -1,6 +1,7 @@
 package com.greencom.android.podcasts3.di
 
 import com.greencom.android.podcasts3.BuildConfig
+import com.greencom.android.podcasts3.data.podcasts.remote.PodcastsApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -13,11 +14,18 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
+
+    @Provides
+    @Singleton
+    fun providePodcastsApi(retrofit: Retrofit): PodcastsApi {
+        return retrofit.create()
+    }
 
     @Provides
     @Singleton
