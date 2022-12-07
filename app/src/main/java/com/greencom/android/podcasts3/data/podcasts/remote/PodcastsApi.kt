@@ -12,7 +12,11 @@ interface PodcastsApi {
         @Query("page") page: Int,
         @Query("language") language: String,
         @Query("sort") sort: String,
-        @Query("safe_mode") safeMode: Int,
+        @Query("safe_mode") isSafeModeEnabled: Int,
     ): GetBestPodcastsResponseDto
+
+    enum class BestPodcastsSort(val stringValue: String) {
+        ListenScore("listen_score"),
+    }
 
 }
