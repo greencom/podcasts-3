@@ -137,7 +137,7 @@ dependencies {
     implementation(Dependencies.coil)
     implementation(Dependencies.Accompanist.systemUi)
 
-    implementation(Dependencies.Firebase.bom)
+    implementation(platform(Dependencies.Firebase.bom))
     implementation(Dependencies.Firebase.auth)
 
     implementation(Dependencies.timber)
