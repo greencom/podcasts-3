@@ -29,7 +29,7 @@ object Versions {
         const val junit = "1.1.4"
 
         object Compose {
-            const val bom = "2022.11.00"
+            const val bom = "2022.12.00"
             const val compiler = "1.3.2"
             const val junit = "1.3.2"
         }
