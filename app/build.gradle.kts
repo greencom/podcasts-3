@@ -10,6 +10,7 @@ plugins {
     id(Plugins.Kotlin.ksp) version Versions.Kotlin.ksp
     id(Plugins.Kotlin.serialization) version Versions.Kotlin.kotlin
     id(Plugins.hilt) version Versions.Hilt.hilt
+    id(Plugins.googleServices) version Versions.Plugins.googleServices
 
     id(Plugins.androidGitVersion) version Versions.Plugins.androidGitVersion
     id(Plugins.detekt) version Versions.Plugins.detekt
@@ -135,6 +136,8 @@ dependencies {
 
     implementation(Dependencies.coil)
     implementation(Dependencies.Accompanist.systemUi)
+
+    implementation(Dependencies.Firebase.bom)
 
     implementation(Dependencies.timber)
     debugImplementation(Dependencies.leakCanary)

@@ -2,6 +2,7 @@ object Versions {
 
     object Plugins {
         const val androidGradle = "7.3.1"
+        const val googleServices = "4.3.14"
 
         const val androidGitVersion = "0.4.14"
         const val detekt = "1.22.0"
@@ -48,6 +49,8 @@ object Versions {
     const val coil = "2.2.2"
 
     const val accompanist = "0.28.0"
+
+    const val firebaseBom = "31.1.1"
 
     const val timber = "5.0.1"
     const val leakCanary = "2.10"

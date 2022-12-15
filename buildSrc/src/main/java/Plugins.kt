@@ -14,6 +14,8 @@ object Plugins {
 
     const val hilt = "com.google.dagger.hilt.android"
 
+    const val googleServices = "com.google.gms.google-services"
+
     const val androidGitVersion = "com.gladed.androidgitversion"
     const val detekt = "io.gitlab.arturbosch.detekt"
     const val checkDependencyUpdates = "name.remal.check-dependency-updates"
