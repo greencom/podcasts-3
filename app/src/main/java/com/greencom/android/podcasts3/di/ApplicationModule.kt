@@ -16,9 +16,7 @@ class ApplicationModule {
     @ApplicationScope
     @Provides
     @Singleton
-    fun provideApplicationScope(): CoroutineScope {
-        return CoroutineScope(SupervisorJob())
-    }
+    fun provideApplicationScope(): CoroutineScope = CoroutineScope(SupervisorJob())
 
 }
 
