@@ -61,6 +61,7 @@ object Dependencies {
 
     object Firebase {
         const val bom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
+        const val auth = "com.google.firebase:firebase-auth"
     }
 
     const val coil = "io.coil-kt:coil-compose:${Versions.coil}"

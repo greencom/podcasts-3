@@ -138,6 +138,7 @@ dependencies {
     implementation(Dependencies.Accompanist.systemUi)
 
     implementation(Dependencies.Firebase.bom)
+    implementation(Dependencies.Firebase.auth)
 
     implementation(Dependencies.timber)
     debugImplementation(Dependencies.leakCanary)
