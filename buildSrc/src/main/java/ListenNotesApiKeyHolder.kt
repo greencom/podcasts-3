@@ -15,7 +15,7 @@ class ListenNotesApiKeyHolder private constructor(
 
         fun init(project: Project): ListenNotesApiKeyHolder {
             // Check local properties
-            val localPropertiesDir = File(project.rootDir, Keys.PROPERTIES_DIR)
+            val localPropertiesDir = File(project.rootDir, PROPERTIES_DIR)
             val localPropertiesFile = File(localPropertiesDir, PROPERTIES_FILE)
             if (localPropertiesFile.exists()) {
                 println("Local ListenNotesApi .properties file found")
