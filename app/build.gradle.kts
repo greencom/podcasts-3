@@ -3,26 +3,21 @@
 import buildtypes.appBuildTypes
 import utils.ensureVersionCode
 
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.kotlin.ksp)
-    alias(libs.plugins.kotlin.serializtion)
-    alias(libs.plugins.hilt)
+    id(Plugins.Android.application) version Versions.Plugins.androidGradle
+    id(Plugins.Kotlin.android) version Versions.Kotlin.kotlin
+    id(Plugins.Kotlin.kapt) version Versions.Kotlin.kotlin
+    id(Plugins.Kotlin.ksp) version Versions.Kotlin.ksp
+    id(Plugins.Kotlin.serialization) version Versions.Kotlin.kotlin
+    id(Plugins.hilt) version Versions.Hilt.hilt
 
-    alias(libs.plugins.androidGitVersion)
-    alias(libs.plugins.detekt)
-    alias(libs.plugins.checkDependencyUpdates)
+    id(Plugins.androidGitVersion) version Versions.Plugins.androidGitVersion
+    id(Plugins.detekt) version Versions.Plugins.detekt
+    id(Plugins.checkDependencyUpdates) version Versions.Plugins.checkDependencyUpdates
 }
 
 kapt {
     correctErrorTypes = true
-}
-
-ksp {
-    arg("room.schemaLocation", "$projectDir/room_schemas")
 }
 
 androidGitVersion {
@@ -54,6 +49,12 @@ android {
         }
     }
 
+    ksp {
+        arg("room.schemaLocation", "$projectDir/room_schemas")
+    }
+
+    val listenNotesApiKeyHolder = ListenNotesApiKeyHolder.init(project)
+
     buildTypes {
         appBuildTypes.forEach { buildType ->
             maybeCreate(buildType.name).apply {
@@ -68,7 +69,6 @@ android {
         }
 
         all {
-            val listenNotesApiKeyHolder = ListenNotesApiKeyHolder.init(project)
             stringBuildConfigField(Keys.LISTEN_NOTES_API_KEY, listenNotesApiKeyHolder.key)
 
             proguardFiles(
@@ -92,7 +92,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+        kotlinCompilerExtensionVersion = Versions.Jetpack.Compose.compiler
     }
 
     packagingOptions {
@@ -103,48 +103,48 @@ android {
 }
 
 dependencies {
-    implementation(libs.jetpack.core)
-    implementation(libs.jetpack.splashScreen)
-    implementation(libs.jetpack.activity)
-    implementation(libs.jetpack.lifecycle)
-    implementation(libs.jetpack.navigation)
-    implementation(libs.jetpack.dataStorePreferences)
-    implementation(libs.jetpack.room)
-    ksp(libs.jetpack.roomCompiler)
+    implementation(Dependencies.Jetpack.core)
+    implementation(Dependencies.Jetpack.activity)
+    implementation(Dependencies.Jetpack.lifecycle)
+    implementation(Dependencies.Jetpack.navigation)
+    implementation(Dependencies.Jetpack.dataStorePreferences)
+    implementation(Dependencies.Jetpack.room)
+    ksp(Dependencies.Jetpack.roomCompiler)
+    implementation(Dependencies.Jetpack.splashScreen)
 
-    implementation(platform(libs.jetpack.compose.bom))
-    implementation(libs.jetpack.compose.ui)
-    implementation(libs.jetpack.compose.material)
-    implementation(libs.jetpack.compose.material3)
-    implementation(libs.jetpack.compose.icons)
-    implementation(libs.jetpack.compose.toolingPreview)
-    debugImplementation(libs.jetpack.compose.tooling)
-    debugImplementation(libs.jetpack.compose.testManifest)
+    implementation(platform(Dependencies.Jetpack.Compose.bom))
+    implementation(Dependencies.Jetpack.Compose.ui)
+    implementation(Dependencies.Jetpack.Compose.material)
+    implementation(Dependencies.Jetpack.Compose.material3)
+    implementation(Dependencies.Jetpack.Compose.icons)
+    implementation(Dependencies.Jetpack.Compose.toolingPreview)
+    debugImplementation(Dependencies.Jetpack.Compose.tooling)
+    debugImplementation(Dependencies.Jetpack.Compose.testManifest)
 
-    implementation(libs.kotlin.coroutines)
-    implementation(libs.kotlin.serialization)
-    implementation(libs.kotlin.immutableCollections)
+    implementation(Dependencies.Kotlin.coroutines)
+    implementation(Dependencies.Kotlin.serialization)
+    implementation(Dependencies.Kotlin.immutableCollections)
 
-    implementation(libs.hilt.hilt)
-    kapt(libs.hilt.compiler)
-    implementation(libs.hilt.navigationCompose)
+    implementation(Dependencies.Hilt.hilt)
+    kapt(Dependencies.Hilt.compiler)
+    implementation(Dependencies.Hilt.navigationCompose)
 
-    implementation(libs.retrofit.retrofit)
-    implementation(libs.retrofit.serializationConverter)
-    implementation(libs.retrofit.loggingInterceptor)
+    implementation(Dependencies.Retrofit.retrofit)
+    implementation(Dependencies.Retrofit.serializationConverter)
+    implementation(Dependencies.Retrofit.loggingInterceptor)
 
-    implementation(libs.coil)
-    implementation(libs.accompanist.systemUi)
+    implementation(Dependencies.coil)
+    implementation(Dependencies.Accompanist.systemUi)
 
-    implementation(libs.timber)
-    debugImplementation(libs.leakCanary)
+    implementation(Dependencies.timber)
+    debugImplementation(Dependencies.leakCanary)
 
     // Test
 
-    testImplementation(libs.test.junit)
+    testImplementation(Dependencies.junit)
 
-    androidTestImplementation(libs.jetpack.test.junit)
-    androidTestImplementation(libs.jetpack.compose.test.junit)
+    androidTestImplementation(Dependencies.Jetpack.junit)
+    androidTestImplementation(Dependencies.Jetpack.Compose.junit)
 }
 
 // Compose metrics
