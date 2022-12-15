@@ -1,6 +1,5 @@
-package com.greencom.android.podcasts3.data.podcasts
+package com.greencom.android.podcasts3.data.podcasts.remote
 
-import com.greencom.android.podcasts3.data.podcasts.remote.PodcastsApi
 import com.greencom.android.podcasts3.utils.toInt
 import javax.inject.Inject
 

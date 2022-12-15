@@ -1,4 +1,4 @@
-package com.greencom.android.podcasts3.data.podcasts
+package com.greencom.android.podcasts3.data.podcasts.local
 
 import com.greencom.android.podcasts3.di.ApplicationScope
 import kotlinx.coroutines.CoroutineScope

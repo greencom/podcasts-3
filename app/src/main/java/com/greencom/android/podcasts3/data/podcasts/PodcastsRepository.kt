@@ -1,5 +1,7 @@
 package com.greencom.android.podcasts3.data.podcasts
 
+import com.greencom.android.podcasts3.data.podcasts.local.PodcastsLocalDataSource
+import com.greencom.android.podcasts3.data.podcasts.remote.PodcastsRemoteDataSource
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
