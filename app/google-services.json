@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "1064704040086",
+    "project_id": "podcasts-3",
+    "storage_bucket": "podcasts-3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064704040086:android:e59ced8811ba9f8f34f6b7",
+        "android_client_info": {
+          "package_name": "com.greencom.android.podcasts3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064704040086-i4dbdttql3gquas4n2j2gtgc00d1fjtr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA_9_oWu8yO5auviwAqmRMHHW4Re5SzAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064704040086-i4dbdttql3gquas4n2j2gtgc00d1fjtr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064704040086:android:85082e6d0535536b34f6b7",
+        "android_client_info": {
+          "package_name": "com.greencom.android.podcasts3.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064704040086-i4dbdttql3gquas4n2j2gtgc00d1fjtr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA_9_oWu8yO5auviwAqmRMHHW4Re5SzAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064704040086-i4dbdttql3gquas4n2j2gtgc00d1fjtr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064704040086:android:1bf93e102baf3eaf34f6b7",
+        "android_client_info": {
+          "package_name": "com.greencom.android.podcasts3.qa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064704040086-i4dbdttql3gquas4n2j2gtgc00d1fjtr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA_9_oWu8yO5auviwAqmRMHHW4Re5SzAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064704040086-i4dbdttql3gquas4n2j2gtgc00d1fjtr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
