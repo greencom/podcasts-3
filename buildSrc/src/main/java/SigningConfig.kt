@@ -30,7 +30,7 @@ class SigningConfig private constructor(
             val localPropertiesDir = File(project.rootDir, PROPERTIES_DIR)
             val localPropertiesFile = File(localPropertiesDir, LOCAL_PROPERTIES_FILE)
             if (localPropertiesFile.exists()) {
-                println("SigningConfig is created with local keystore.properties file")
+                println("SigningConfig is created with local $LOCAL_PROPERTIES_FILE file")
                 val properties = Properties()
                 properties.load(FileInputStream(localPropertiesFile))
                 return createDefaultFromLocalProperties(properties)
