@@ -54,8 +54,17 @@ android {
         arg("room.schemaLocation", "$projectDir/room_schemas")
     }
 
-    val listenNotesApiKeyHolder = ListenNotesApiKeyHolder.init(project)
+    val defaultSigningConfig = SigningConfig.getDefault(project)
+    signingConfigs {
+        create(defaultSigningConfig.name) {
+            storeFile = file(defaultSigningConfig.keystorePath)
+            storePassword = defaultSigningConfig.keystorePassword
+            keyAlias = defaultSigningConfig.keyAlias
+            keyPassword = defaultSigningConfig.keyPassword
+        }
+    }
 
+    val listenNotesApiKeyHolder = ListenNotesApiKeyHolder.init(project)
     buildTypes {
         appBuildTypes.forEach { buildType ->
             maybeCreate(buildType.name).apply {
@@ -70,6 +79,8 @@ android {
         }
 
         all {
+            signingConfig = signingConfigs.getByName(defaultSigningConfig.name)
+
             stringBuildConfigField(Keys.LISTEN_NOTES_API_KEY, listenNotesApiKeyHolder.key)
 
             proguardFiles(
