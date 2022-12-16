@@ -8,32 +8,26 @@ class ListenNotesApiKeyHolder private constructor(
 ) {
 
     companion object {
-        private const val PROPERTIES_FILE = "listen_notes_api.properties"
-        private const val PROPERTIES_KEY = "key"
+        private const val LOCAL_PROPERTIES_FILE = "listen_notes_api.properties"
+        private const val LOCAL_PROPERTIES_KEY_KEY = "key"
 
-        private const val CI_CD_KEY = "LISTEN_NOTES_API_KEY"
+        private const val CI_CD_KEY_KEY = "LISTEN_NOTES_API_KEY"
 
         fun init(project: Project): ListenNotesApiKeyHolder {
             // Check local properties
             val localPropertiesDir = File(project.rootDir, PROPERTIES_DIR)
-            val localPropertiesFile = File(localPropertiesDir, PROPERTIES_FILE)
+            val localPropertiesFile = File(localPropertiesDir, LOCAL_PROPERTIES_FILE)
             if (localPropertiesFile.exists()) {
-                println("Local ListenNotesApi .properties file found")
+                println("ListenNotesApiKeyHolder is created with local $LOCAL_PROPERTIES_FILE file")
                 val properties = Properties()
                 properties.load(FileInputStream(localPropertiesFile))
-                val key = properties.getProperty(PROPERTIES_KEY) ?: let {
-                    println("Property not found for given key")
-                    ""
-                }
+                val key = properties.getProperty(LOCAL_PROPERTIES_KEY_KEY, "")
                 return ListenNotesApiKeyHolder(key)
             }
 
-            // Check CI/CD env variables if local properties not found
-            println("Local ListenNotesApi .properties file not found, check env variables")
-            val key = System.getenv(CI_CD_KEY) ?: let {
-                println("CI/CD env variable not found for given key")
-                ""
-            }
+            // If there is no local properties file, check CI/CD environment
+            println("ListenNotesApiKeyHolder is created with CD/CD environment")
+            val key = System.getenv(CI_CD_KEY_KEY) ?: ""
             return ListenNotesApiKeyHolder(key)
         }
     }
