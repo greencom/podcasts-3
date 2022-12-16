@@ -64,6 +64,9 @@ object Dependencies {
         const val auth = "com.google.firebase:firebase-auth-ktx"
     }
 
+    const val googlePlayServices =
+        "com.google.android.gms:play-services-auth:${Versions.googlePlayServices}"
+
     const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"

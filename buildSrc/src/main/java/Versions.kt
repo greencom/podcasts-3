@@ -46,11 +46,13 @@ object Versions {
         const val loggingInterceptor = "4.10.0"
     }
 
+    const val firebaseBom = "31.1.1"
+
+    const val googlePlayServices = "20.4.0"
+
     const val coil = "2.2.2"
 
     const val accompanist = "0.28.0"
-
-    const val firebaseBom = "31.1.1"
 
     const val timber = "5.0.1"
     const val leakCanary = "2.10"

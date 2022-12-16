@@ -134,11 +134,13 @@ dependencies {
     implementation(Dependencies.Retrofit.serializationConverter)
     implementation(Dependencies.Retrofit.loggingInterceptor)
 
-    implementation(Dependencies.coil)
-    implementation(Dependencies.Accompanist.systemUi)
-
     implementation(platform(Dependencies.Firebase.bom))
     implementation(Dependencies.Firebase.auth)
+
+    implementation(Dependencies.googlePlayServices)
+
+    implementation(Dependencies.coil)
+    implementation(Dependencies.Accompanist.systemUi)
 
     implementation(Dependencies.timber)
     debugImplementation(Dependencies.leakCanary)
