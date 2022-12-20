@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.greencom.android.podcasts3.data.ActivityResultRegistryTracker
 import com.greencom.android.podcasts3.ui.app.App
 import com.greencom.android.podcasts3.ui.common.screenbehaviors.screenorientation.LocalScreenOrientationBehaviorController
 import com.greencom.android.podcasts3.ui.common.screenbehaviors.screenorientation.ScreenOrientationBehavior
@@ -20,11 +21,17 @@ import com.greencom.android.podcasts3.ui.common.screenbehaviors.screenorientatio
 import com.greencom.android.podcasts3.ui.theme.AppTheme
 import com.greencom.android.podcasts3.utils.screenbehavior.DefaultScreenBehaviorController
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var activityResultRegistryTracker: ActivityResultRegistryTracker
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        activityResultRegistryTracker.setRegistry(activityResultRegistry)
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
@@ -49,6 +56,12 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        activityResultRegistryTracker.unsetRegistry(activityResultRegistry)
+    }
+
 }
 
 @Composable
