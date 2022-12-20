@@ -25,9 +25,7 @@ class FirebaseModule {
     @Singleton
     fun provideGoogleSignInClient(
         @ApplicationContext context: Context,
-    ): SignInClient {
-        return Identity.getSignInClient(context)
-    }
+    ): SignInClient = Identity.getSignInClient(context)
 
     @Provides
     fun provideGoogleSignInRequest(
