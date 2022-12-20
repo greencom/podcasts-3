@@ -1,6 +1,8 @@
 package com.greencom.android.podcasts3.di
 
 import android.content.Context
+import com.google.android.gms.auth.api.identity.BeginSignInRequest
+import com.google.android.gms.auth.api.identity.BeginSignInRequest.GoogleIdTokenRequestOptions
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +27,26 @@ class FirebaseModule {
         @ApplicationContext context: Context,
     ): SignInClient {
         return Identity.getSignInClient(context)
+    }
+
+    @Provides
+    fun provideGoogleSignInRequest(
+        googleIdTokenRequestOptions: GoogleIdTokenRequestOptions,
+    ): BeginSignInRequest {
+        return BeginSignInRequest.builder()
+            .setGoogleIdTokenRequestOptions(googleIdTokenRequestOptions)
+            .setAutoSelectEnabled(true)
+            .build()
+    }
+
+    @Provides
+    fun provideGoogleIdTokenRequestOptions(): GoogleIdTokenRequestOptions {
+        // TODO: Extract client ID
+        return GoogleIdTokenRequestOptions.builder()
+            .setSupported(true)
+            .setServerClientId("1064704040086-i4dbdttql3gquas4n2j2gtgc00d1fjtr.apps.googleusercontent.com")
+            .setFilterByAuthorizedAccounts(true)
+            .build()
     }
 
 }
