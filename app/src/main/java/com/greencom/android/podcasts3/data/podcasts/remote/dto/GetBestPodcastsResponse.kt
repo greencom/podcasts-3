@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class GetBestPodcastsResponseDto(
+data class GetBestPodcastsResponse(
     @SerialName("id") val genreId: Int? = null,
     @SerialName("name") val genreName: String? = null,
     @SerialName("total") val total: Int? = null,

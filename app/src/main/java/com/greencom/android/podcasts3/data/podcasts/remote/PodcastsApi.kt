@@ -1,6 +1,6 @@
 package com.greencom.android.podcasts3.data.podcasts.remote
 
-import com.greencom.android.podcasts3.data.podcasts.remote.dto.GetBestPodcastsResponseDto
+import com.greencom.android.podcasts3.data.podcasts.remote.dto.GetBestPodcastsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -13,7 +13,7 @@ interface PodcastsApi {
         @Query("language") language: String,
         @Query("sort") sort: String,
         @Query("safe_mode") isSafeModeEnabled: Int,
-    ): GetBestPodcastsResponseDto
+    ): GetBestPodcastsResponse
 
     enum class BestPodcastsSort(val stringValue: String) {
         ListenScore("listen_score"),
