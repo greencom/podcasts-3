@@ -1,8 +1,8 @@
 package com.greencom.android.podcasts3.utils.navigation.parameterless
 
-import com.greencom.android.podcasts3.utils.navigation.Graph
+import com.greencom.android.podcasts3.utils.navigation.Destination
 
-abstract class Graph : Graph<Unit>() {
+abstract class SimpleDestination : Destination<Unit>() {
 
     abstract override val routeSchema: String
 
