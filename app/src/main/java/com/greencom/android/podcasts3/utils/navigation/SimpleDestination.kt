@@ -1,5 +1,7 @@
 package com.greencom.android.podcasts3.utils.navigation
 
+import androidx.navigation.NamedNavArgument
+
 abstract class SimpleDestination : Destination<Unit>() {
 
     abstract override val routeSchema: String
@@ -12,5 +14,8 @@ abstract class SimpleDestination : Destination<Unit>() {
         level = DeprecationLevel.WARNING,
     )
     override fun createRoute(args: Unit): String = route
+
+    final override val arguments: List<NamedNavArgument>
+        get() = super.arguments
 
 }
