@@ -1,9 +1,9 @@
-package com.greencom.android.podcasts3.utils.clean
+package com.greencom.android.podcasts3.utils.clean.parameterless
 
+import com.greencom.android.podcasts3.utils.clean.UseCase
 import kotlinx.coroutines.CoroutineDispatcher
 
-// TODO: Find a better name
-abstract class UseCaseParameterless<out R>(
+abstract class UseCase<out R>(
     dispatcher: CoroutineDispatcher,
 ) : UseCase<Unit, R>(dispatcher) {
 

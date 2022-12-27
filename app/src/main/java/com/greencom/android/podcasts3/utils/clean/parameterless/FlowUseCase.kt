@@ -1,10 +1,10 @@
-package com.greencom.android.podcasts3.utils.clean
+package com.greencom.android.podcasts3.utils.clean.parameterless
 
+import com.greencom.android.podcasts3.utils.clean.FlowUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 
-// TODO: Find a better name
-abstract class FlowUseCaseParameterless<out R>(
+abstract class FlowUseCase<out R>(
     dispatcher: CoroutineDispatcher,
 ) : FlowUseCase<Unit, R>(dispatcher) {
 
