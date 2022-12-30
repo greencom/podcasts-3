@@ -7,4 +7,6 @@
     <string name="navigation_bar_podcasts">Подкасты</string>
     <string name="navigation_bar_discover">Находки</string>
 
+    <string name="sign_in_with_google">Войти с помощью Google</string>
+
 </resources>
