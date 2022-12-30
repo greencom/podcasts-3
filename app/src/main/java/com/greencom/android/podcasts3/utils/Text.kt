@@ -15,6 +15,7 @@ fun textString(text: Text): String {
     return text.getString(context)
 }
 
+// TODO: Tests
 sealed class Text {
 
     abstract fun getString(context: Context): kotlin.String

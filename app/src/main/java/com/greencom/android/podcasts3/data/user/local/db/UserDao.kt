@@ -5,7 +5,7 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 
-// TODO: Write tests
+// TODO: Tests
 @Dao
 abstract class UserDao {
 

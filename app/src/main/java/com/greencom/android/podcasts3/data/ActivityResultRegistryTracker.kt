@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 import javax.inject.Singleton
 
+// TODO: Tests
 @Singleton
 class ActivityResultRegistryTracker @Inject constructor() {
 
