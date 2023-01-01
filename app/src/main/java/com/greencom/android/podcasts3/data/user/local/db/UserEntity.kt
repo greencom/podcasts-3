@@ -3,6 +3,7 @@ package com.greencom.android.podcasts3.data.user.local.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.greencom.android.podcasts3.domain.user.User
 
 @Entity(tableName = UserEntity.TABLE_NAME)
 data class UserEntity(
@@ -13,6 +14,13 @@ data class UserEntity(
     @ColumnInfo(name = "user_email") val email: String?,
 ) {
     companion object {
+        fun fromUser(user: User): UserEntity = UserEntity(
+            id = user.id,
+            displayName = user.displayName,
+            avatarUrl = user.avatarUrl,
+            email = user.email,
+        )
+
         const val TABLE_NAME = "user"
     }
 }
