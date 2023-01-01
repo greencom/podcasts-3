@@ -45,7 +45,7 @@ class FirebaseModule {
         return GoogleIdTokenRequestOptions.builder()
             .setSupported(true)
             .setServerClientId(serverClientId)
-            .setFilterByAuthorizedAccounts(true)
+            .setFilterByAuthorizedAccounts(false)
             .build()
     }
 
