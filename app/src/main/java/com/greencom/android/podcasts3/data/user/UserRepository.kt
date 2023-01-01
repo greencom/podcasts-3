@@ -16,4 +16,9 @@ class UserRepository @Inject constructor(
         return user
     }
 
+    suspend fun signOut() {
+        remoteDataSource.signOut()
+        localDataSource.removeAllUsers()
+    }
+
 }

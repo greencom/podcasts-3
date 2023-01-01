@@ -15,6 +15,9 @@ abstract class UserDao {
 
     fun getCurrentUser(): Flow<UserEntity?> = getCurrentUserRaw().distinctUntilChanged()
 
+    @Query("DELETE FROM ${UserEntity.TABLE_NAME}")
+    abstract suspend fun clear()
+
     @Query("SELECT * FROM ${UserEntity.TABLE_NAME}")
     protected abstract fun getCurrentUserRaw(): Flow<UserEntity?>
 

@@ -14,4 +14,8 @@ class UserLocalDataSource @Inject constructor(
         dao.insert(entity)
     }
 
+    suspend fun removeAllUsers() {
+        dao.clear()
+    }
+
 }
