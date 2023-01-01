@@ -93,9 +93,9 @@ class UserRemoteDataSource @Inject constructor(
 
     private fun SignInCredential.toUser(): User = User(
         id = id,
-        displayName = displayName.orEmpty(), // TODO: Is orEmpty() okay?
-        email = id,
+        displayName = displayName,
         avatarUrl = profilePictureUri?.toString(),
+        email = id,
     )
 
     companion object {
