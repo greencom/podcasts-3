@@ -40,8 +40,7 @@ fun App() {
 @Composable
 private fun rememberNavigationBarBehaviorController(): NavigationBarBehaviorController {
     return remember {
-        DefaultScreenBehaviorController(
-            defaultBehavior = NavigationBarBehavior.Visible(isAnimated = false)
-        )
+        val defaultBehavior = NavigationBarBehavior.Hidden(isAnimated = false)
+        DefaultScreenBehaviorController(defaultBehavior)
     }
 }
