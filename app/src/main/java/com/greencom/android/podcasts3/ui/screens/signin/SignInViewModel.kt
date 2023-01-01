@@ -7,7 +7,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SignInViewModel @Inject constructor() : BaseViewModel<Event, SideEffect>() {
+class SignInViewModel @Inject constructor(
+    private val interactor: SignInInteractor,
+) : BaseViewModel<Event, SideEffect>() {
 
     override fun onEvent(event: Event) = Unit
 
