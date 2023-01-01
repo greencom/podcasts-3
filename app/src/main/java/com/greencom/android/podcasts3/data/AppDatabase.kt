@@ -7,7 +7,7 @@ import com.greencom.android.podcasts3.data.user.local.db.UserEntity
 
 @Database(
     entities = [UserEntity::class],
-    version = 1,
+    version = 2,
 )
 abstract class AppDatabase : RoomDatabase() {
 

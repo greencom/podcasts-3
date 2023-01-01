@@ -8,6 +8,9 @@ import androidx.room.PrimaryKey
 data class UserEntity(
     @PrimaryKey
     @ColumnInfo(name = "user_id") val id: String,
+    @ColumnInfo(name = "user_display_name") val displayName: String?,
+    @ColumnInfo(name = "user_avatar_url") val avatarUrl: String?,
+    @ColumnInfo(name = "user_email") val email: String?,
 ) {
     companion object {
         const val TABLE_NAME = "user"
