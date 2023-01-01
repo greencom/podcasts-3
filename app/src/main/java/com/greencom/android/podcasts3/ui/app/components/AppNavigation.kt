@@ -4,11 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.greencom.android.podcasts3.ui.common.tooling.Placeholder
 import com.greencom.android.podcasts3.ui.navigation.CommonDestinations
-import com.greencom.android.podcasts3.ui.navigation.graphs.PodcastsGraph
 import com.greencom.android.podcasts3.ui.navigation.graphs.discoverGraph
 import com.greencom.android.podcasts3.ui.navigation.graphs.podcastsGraph
+import com.greencom.android.podcasts3.ui.screens.signin.SignInScreen
 import com.greencom.android.podcasts3.utils.navigation.composableDestination
 
 @Composable
@@ -18,11 +17,11 @@ fun AppNavigation(
 ) {
     NavHost(
         navController = navController,
-        startDestination = PodcastsGraph.route,
+        startDestination = CommonDestinations.SignIn.route,
         modifier = modifier,
     ) {
         composableDestination(CommonDestinations.SignIn) {
-            Placeholder("SignIn")
+            SignInScreen()
         }
 
         podcastsGraph(navController)
