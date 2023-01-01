@@ -1,4 +1,8 @@
 <resources>
+    
+    <string name="google_server_client_id" translatable="false">
+        1064704040086-i4dbdttql3gquas4n2j2gtgc00d1fjtr.apps.googleusercontent.com
+    </string>
 
     <string name="app_name_debug">Podcasts Debug</string>
     <string name="app_name_qa">Podcasts QA</string>

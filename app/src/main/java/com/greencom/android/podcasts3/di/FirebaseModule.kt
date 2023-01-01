@@ -6,6 +6,7 @@ import com.google.android.gms.auth.api.identity.BeginSignInRequest.GoogleIdToken
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.FirebaseAuth
+import com.greencom.android.podcasts3.R
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,11 +39,13 @@ class FirebaseModule {
     }
 
     @Provides
-    fun provideGoogleIdTokenRequestOptions(): GoogleIdTokenRequestOptions {
-        // TODO: Extract client ID
+    fun provideGoogleIdTokenRequestOptions(
+        @ApplicationContext context: Context,
+    ): GoogleIdTokenRequestOptions {
+        val serverClientId = context.getString(R.string.google_server_client_id)
         return GoogleIdTokenRequestOptions.builder()
             .setSupported(true)
-            .setServerClientId("1064704040086-i4dbdttql3gquas4n2j2gtgc00d1fjtr.apps.googleusercontent.com")
+            .setServerClientId(serverClientId)
             .setFilterByAuthorizedAccounts(true)
             .build()
     }
