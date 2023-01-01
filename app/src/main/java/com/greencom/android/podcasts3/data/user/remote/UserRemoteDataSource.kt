@@ -19,6 +19,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
+// TODO: Tests
 // TODO: Check on devices without Google services
 class UserRemoteDataSource @Inject constructor(
     private val googleSignInClient: SignInClient,
