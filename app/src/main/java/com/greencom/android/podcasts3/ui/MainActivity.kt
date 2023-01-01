@@ -80,9 +80,8 @@ private fun TransparentSystemBars() {
 @Composable
 private fun rememberScreenOrientationBehaviorController(): ScreenOrientationBehaviorController {
     return remember {
-        DefaultScreenBehaviorController(
-            defaultBehavior = ScreenOrientationBehavior(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-        )
+        val defaultBehavior = ScreenOrientationBehavior(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+        DefaultScreenBehaviorController(defaultBehavior)
     }
 }
 
