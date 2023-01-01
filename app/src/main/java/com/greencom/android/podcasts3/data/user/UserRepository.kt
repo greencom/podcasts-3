@@ -10,8 +10,10 @@ class UserRepository @Inject constructor(
     private val remoteDataSource: UserRemoteDataSource,
 ) {
 
-    suspend fun saveUser(user: User) {
+    suspend fun signIn(): User {
+        val user = remoteDataSource.signIn()
         localDataSource.saveUser(user)
+        return user
     }
 
 }
